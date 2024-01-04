@@ -16,7 +16,7 @@ Window {
 	Material.background: "#543c44"
 	Material.primary: Material.BlueGrey
 
-	title: qsTr("Hello World")
+	title: qsTr("HyperCube")
 	width: 800
 	height: 480
 	color: "#2c2c2c"
@@ -138,6 +138,7 @@ Window {
 			projectUI.updateProjectCount()
 			stack.push(infoUI)
 		}
+		//! Set Remote directory
 		onOpenSetupUI: stack.push(setupUI)
 		onMountRemote: {
 			projectPath = ""
