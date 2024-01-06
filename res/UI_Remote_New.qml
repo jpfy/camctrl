@@ -29,7 +29,7 @@ Rectangle {
 		font.family: "CMU Typewriter Text"
 		font.italic: true
 		font.pointSize: 17
-		model: ["sshfs"]
+		model: ["sshfs", "onedrive", "cifs",]
 		editable: false
 		currentIndex: 0
 	}

@@ -18,7 +18,7 @@ sudo mv camctrl /usr/local/bin/camctrl
 sudo mkdir -p /usr/local/share/camctrl/docs
 
 # Create an example project
-sudo mkdir -p /usr/share/camctrl/Projects/example
+sudo mkdir -p ~/Documents/Project/Projects/example
 
 # Copy over internal documentation
 sudo cp res/docs/* /usr/local/share/camctrl/docs/

@@ -48,9 +48,9 @@ Window {
 
 	property string projectPath: {
 		if (currentOpenRemote == "__local__") {
-			"/usr/share/camctrl/Projects/"
+			"~/Documents/Projects"
 		} else {
-			"/usr/share/camctrl/Projects/"
+			"~/Documents/Projects"
 		}
 	}
 
@@ -141,8 +141,8 @@ Window {
 		//! Set Remote directory
 		onOpenSetupUI: stack.push(setupUI)
 		onMountRemote: {
-			projectPath = ""
-			projectPath = "/usr/share/camctrl/Projects/"
+			//projectPath = ""
+			projectPath = "~/Documents/Projects"
 		}
 	}
 

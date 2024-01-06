@@ -41,15 +41,15 @@ Rectangle {
 		font.pointSize: 17
 		font.family: "CMU Concrete"
 
-		// enabled: false
+		//enabled: false
 
 		onClicked: {
-			fileUtils.exec("mount /usr/share/camctrl")
+			fileUtils.exec("mount ~/Documents/Project")
 			mountRemote()
-			fileUtils.exec("mkdir -p /usr/share/camctrl/Projects")
-			button_openRemoteUI.enabled = false
-			//openRemoteUI()
-			//mainUI.visible = false
+		//	fileUtils.exec("mkdir -p ~/Documents/Project/Projects")
+			//button_openRemoteUI.enabled = true
+			openRemoteUI()
+			mainUI.visible = false
 		}
 
 		Image {
