@@ -117,19 +117,19 @@ void CameraUtils::update_frameRate(int rate) {
 	frameRate = std::to_string(rate);
 };
 
-
+//Changed to libcamera-vid added codec and bitrate
 void CameraUtils::start_vid(void) {
 	stop();
-	std::string cmd = "raspivid " + get_preview_arg() +
-			" -t 0 " + get_annotation_arg() +
-					  "-b 17000000 -fps " + frameRate + " -cd H264 -i pause -s -o ~/Documents/Project/Projects/" +
-		project + "/vid.h264 &";
+	std::string cmd = "libcamera-vid " + get_preview_arg() +
+			"--codec libav --libav-format mp4" + "-t 0 " + get_annotation_arg() +
+					  "-b 17000000 -fps " + frameRate + " -i pause -s -o ~/Documents/Project/Projects/" +
+		project + "/vid.mp4 &";
 	system(cmd.c_str());
 };
 
 
 void CameraUtils::stop_vid(void) {
-	std::string cmd = "killall -q raspivid";
+	std::string cmd = "killall -q libcamera-vid";
 	system(cmd.c_str());
 };
 

@@ -289,7 +289,7 @@ Rectangle {
 			}
 		}
 
-		MenuItem {
+/*		MenuItem {
 			text: "Timelapse"
 			onTriggered: {
 				app.modeName = "LPS"
@@ -297,8 +297,9 @@ Rectangle {
 				cam.start(app.modeName)
 			}
 		}
+*/
 	}
-
+//change this to exposure menu
 	Menu {
 		id: trigMenu
 
