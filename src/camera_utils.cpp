@@ -45,9 +45,9 @@ void CameraUtils::capture(QString mode) {
 
 void CameraUtils::record(void) {
 	std::string cmd;
-	cmd = "pgrep raspivid | xargs -I % kill -USR1 % && \
+	cmd = "pgrep libcamera-vid | xargs -I % kill -USR1 % && \
 		cd ~/Documents/Project/Projects/" + project + " && \
-		ls -1 | grep VID | wc -l | xargs printf \"%04d\" | xargs -I % mv vid.h264 VID_%.h264";
+		ls -1 | grep VID | wc -l | xargs printf \"%04d\" | xargs -I % mv vid.mp4 VID_%.mp4";
 	system(cmd.c_str());
 	recording ^= 1;
 	std::cout << "Flipped: " << recording << std::endl;
