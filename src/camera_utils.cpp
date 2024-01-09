@@ -71,8 +71,8 @@ void CameraUtils::set_homeDir(std::string dir) {
 
 
 // Private
-
-std::string CameraUtils::homeDir = "/home/pi/";
+//home directory
+std::string CameraUtils::homeDir = "/home/phil/";
 std::string CameraUtils::project = "example";
 int CameraUtils::annotation = 0;
 
@@ -136,7 +136,7 @@ void CameraUtils::stop_vid(void) {
 
 void CameraUtils::start_lapse(void) {
 	stop();
-	std::string cmd = "raspistill " + get_preview_arg() +
+	std::string cmd = "libcamera-still " + get_preview_arg() +
 			" --mode 4 -t 0 " + get_annotation_arg() +
 					  "-s -o ~/Documents/Project/Projects/" +
 		project + "/lps.jpg &";
@@ -172,7 +172,7 @@ void CameraUtils::capture_video_EXT(void) {
 
 void CameraUtils::capture_frame(void) {
 	std::string cmd;
-	cmd = "pgrep raspistill | xargs -I % kill -USR1 % && \
+	cmd = "pgrep libcamera-still | xargs -I % kill -USR1 % && \
 		cd ~/Documents/Project/Projects/" + project + " && \
 		ls -1 | grep FRM | wc -l | xargs printf \"%04d\" | xargs -I % mv lps.jpg FRM_%.jpg";
 	system(cmd.c_str());
@@ -180,7 +180,7 @@ void CameraUtils::capture_frame(void) {
 
 
 void CameraUtils::stop_lapse(void) {
-	std::string cmd = "killall -q raspistill";
+	std::string cmd = "killall -q libcamera-still";
 	system(cmd.c_str());
 };
 
