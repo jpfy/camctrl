@@ -137,47 +137,47 @@ Window {
 		onOpenInfoUI: {
 			projectUI.updateProjectCount()
 			stack.push(infoUI)
-		}
-		//! Set Remote directory
-		onOpenSetupUI: stack.push(setupUI)
-		onMountRemote: {
-			projectPath = "/usr/share/hypercube/FIles/Projects"
-		}
+        }
+//	 Set Remote directory
+//		onOpenSetupUI: stack.push(setupUI)
+//		onMountRemote: {
+//			projectPath = "/usr/share/hypercube/FIles/Projects"
+//		}
 	}
 
-	UI_Remote {
-		id: remoteUI
+//UI_Remote {
+//		id: remoteUI
 
-		onOpenMainUI: stack.pop()
+//		onOpenMainUI: stack.pop()
 
-		onNewRemote: stack.push(newRemoteUI)
-		onDeleteRemote: {
-			deleteRemoteUI.visible = true
-			remoteUI.enabled = false
-		}
-		onSelectRemote: {
-			if (currentOpenRemote != "__local__") {
-				fileUtils.mount(remotePath + currentOpenRemote, projectPath)
-			}
-			console.log(projectPath)
-		}
-	}
+//		onNewRemote: stack.push(newRemoteUI)
+//		onDeleteRemote: {
+//			deleteRemoteUI.visible = true
+//			remoteUI.enabled = false
+//		}
+//		onSelectRemote: {
+//			if (currentOpenRemote != "__local__") {
+//				fileUtils.mount(remotePath + currentOpenRemote, projectPath)
+//			}
+//			console.log(projectPath)
+//		}
+//	}
 
-	UI_Remote_New {
-		id: newRemoteUI
+//	UI_Remote_New {
+//		id: newRemoteUI
 
-		onCancel: stack.pop()
-	}
+//		onCancel: stack.pop()
+//	}
 
-	UI_Remote_Delete {
-		id: deleteRemoteUI
+//	UI_Remote_Delete {
+//		id: deleteRemoteUI
 
-		onCancel: remoteUI.enabled = true
-		onDel: {
-			remoteUI.del()
-			remoteUI.enabled = true
-		}
-	}
+//		onCancel: remoteUI.enabled = true
+//		onDel: {
+//			remoteUI.del()
+//			remoteUI.enabled = true
+//		}
+//	}
 
 	UI_Project {
 		id: projectUI

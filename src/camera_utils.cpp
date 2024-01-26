@@ -121,7 +121,7 @@ void CameraUtils::start_vid(void) {
 	stop();
 	std::string cmd = "libcamera-vid " + get_preview_arg() +
 			"  " + "-t 0 " + get_annotation_arg() +
-					  "-b 9000000 -fps " + frameRate + " --codec libav --libav-format -o /usr/share/hypercube/FIles/Projects/" +
+					  "-b 9000000 -fps " + frameRate + " --codec libav -o /usr/share/hypercube/FIles/Projects/" +
 		project + "/vid.mp4 &";
 	system(cmd.c_str());
 };
