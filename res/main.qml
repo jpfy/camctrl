@@ -48,9 +48,9 @@ Window {
 
 	property string projectPath: {
 		if (currentOpenRemote == "__local__") {
-			"~/Documents/Projects"
+			"/usr/share/hypercube/FIles/Projects/"
 		} else {
-			"~/Documents/Projects"
+			"/usr/share/hypercube/FIles/Projects/"
 		}
 	}
 
@@ -141,8 +141,7 @@ Window {
 		//! Set Remote directory
 		onOpenSetupUI: stack.push(setupUI)
 		onMountRemote: {
-			//projectPath = ""
-			projectPath = "~/Documents/Projects"
+			projectPath = "/usr/share/hypercube/FIles/Projects"
 		}
 	}
 

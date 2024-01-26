@@ -44,9 +44,9 @@ Rectangle {
 		//enabled: false
 
 		onClicked: {
-			fileUtils.exec("mount ~/Documents/Project")
+			fileUtils.exec("mount /usr/share/hypercube/FIles/Projects/")
 			mountRemote()
-		//	fileUtils.exec("mkdir -p ~/Documents/Project/Projects")
+		//	fileUtils.exec("mkdir -p /usr/share/hypercube/FIles/Projects")
 			//button_openRemoteUI.enabled = true
 			openRemoteUI()
 			mainUI.visible = false

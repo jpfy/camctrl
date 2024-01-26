@@ -1,5 +1,5 @@
 #!/bin/bash
 
 #until ping -c1 $CAMCTRL_NFS > /dev/null 2>&1; do sleep 5; done &&
-#sudo mount ~/Documents/Project &&
+#sudo mount /usr/share/hypercube/FIles/Projects/ &&
 sudo startx camctrl

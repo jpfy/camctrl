@@ -5,7 +5,6 @@
 #include <cstdlib>
 #include <string>
 #include <iterator>
-
 #include "camera_utils.h"
 
 
@@ -46,7 +45,7 @@ void CameraUtils::capture(QString mode) {
 void CameraUtils::record(void) {
 	std::string cmd;
 	cmd = "pgrep libcamera-vid | xargs -I % kill -USR1 % && \
-		cd ~/Documents/Project/Projects/" + project + " && \
+		cd /usr/share/hypercube/FIles/Projects/" + project + " && \
 		ls -1 | grep VID | wc -l | xargs printf \"%04d\" | xargs -I % mv vid.mp4 VID_%.mp4";
 	system(cmd.c_str());
 	recording ^= 1;
@@ -72,14 +71,14 @@ void CameraUtils::set_homeDir(std::string dir) {
 
 // Private
 //home directory
-std::string CameraUtils::homeDir = "/home/phil/";
+std::string CameraUtils::homeDir = "/usr/share/hypercube/FIles";
 std::string CameraUtils::project = "example";
 int CameraUtils::annotation = 0;
 
 
 
 std::string CameraUtils::get_preview_arg(void) {
-	std::string arg = "-p '" +
+	std::string arg = " -p '" +
 			std::to_string(CAMERA_VIEWPORT_X) + "," +
 			std::to_string(CAMERA_VIEWPORT_Y) + "," +
 			std::to_string(CAMERA_VIEWPORT_WIDTH) + "," +
@@ -92,7 +91,7 @@ void CameraUtils::start_still(void) {
 	stop();
 	std::string cmd = "libcamera-still" + get_preview_arg() +
 			" -t 0 " + get_annotation_arg() +
-					  "-s -o ~/Documents/Project/Projects/" +
+					  "-s -o /usr/share/hypercube/FIles/Projects/" +
 		project + "/img.jpg &";
 	system(cmd.c_str());
 };
@@ -101,7 +100,7 @@ void CameraUtils::start_still(void) {
 void CameraUtils::capture_still(void) {
 	std::string cmd;
 	cmd = "pgrep libcamera-still | xargs -I % kill -USR1 % && \
-		cd ~/Documents/Project/Projects/" + project + " && \
+		cd /usr/share/hypercube/FIles/Projects/" + project + " && \
 		ls -1 | grep IMG | wc -l | xargs printf \"%04d\" | xargs -I % mv img.jpg IMG_%.jpg";
 	system(cmd.c_str());
 };
@@ -121,8 +120,8 @@ void CameraUtils::update_frameRate(int rate) {
 void CameraUtils::start_vid(void) {
 	stop();
 	std::string cmd = "libcamera-vid " + get_preview_arg() +
-			"--codec libav --libav-format mp4" + "-t 0 " + get_annotation_arg() +
-					  "-b 17000000 -fps " + frameRate + " -i pause -s -o ~/Documents/Project/Projects/" +
+			"  " + "-t 0 " + get_annotation_arg() +
+					  "-b 9000000 -fps " + frameRate + " --codec libav --libav-format -o /usr/share/hypercube/FIles/Projects/" +
 		project + "/vid.mp4 &";
 	system(cmd.c_str());
 };
@@ -138,7 +137,7 @@ void CameraUtils::start_lapse(void) {
 	stop();
 	std::string cmd = "libcamera-still " + get_preview_arg() +
 			" --mode 4 -t 0 " + get_annotation_arg() +
-					  "-s -o ~/Documents/Project/Projects/" +
+					  "-s -o /usr/share/hypercube/FIles/Projects/" +
 		project + "/lps.jpg &";
 	system(cmd.c_str());
 };
@@ -173,7 +172,7 @@ void CameraUtils::capture_video_EXT(void) {
 void CameraUtils::capture_frame(void) {
 	std::string cmd;
 	cmd = "pgrep libcamera-still | xargs -I % kill -USR1 % && \
-		cd ~/Documents/Project/Projects/" + project + " && \
+		cd /usr/share/hypercube/FIles/Projects/" + project + " && \
 		ls -1 | grep FRM | wc -l | xargs printf \"%04d\" | xargs -I % mv lps.jpg FRM_%.jpg";
 	system(cmd.c_str());
 };
